@@ -34,7 +34,38 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
        
        
     }
-
+public void habilitar (){
+       jTxtCodigo.setEnabled(true);
+       jTxtNome.setEnabled(true);
+       jTxtApelido.setEnabled(true);
+       jFmtCpf.setEnabled(true);
+       jFmtDataNascimento.setEnabled(true);
+       jCboNivel.setEnabled(true);
+       jPwfSenha.setEnabled(true);
+       jChbAtivo.setEnabled(true);
+       jBtnConfirmar.setEnabled(true);
+       jBtnCancelar.setEnabled(true);
+       jBtnIncluir.setEnabled(false);
+       jBtnAlterar.setEnabled(false);
+       jBtnExcluir.setEnabled(false);
+       jBtnPesquisar.setEnabled(false);
+}
+public void desabilitar(){
+     jTxtCodigo.setEnabled(false);
+       jTxtNome.setEnabled(false);
+       jTxtApelido.setEnabled(false);
+       jFmtCpf.setEnabled(false);
+       jFmtDataNascimento.setEnabled(false);
+       jCboNivel.setEnabled(false);
+       jPwfSenha.setEnabled(false);
+       jChbAtivo.setEnabled(false);
+       jBtnConfirmar.setEnabled(false);
+       jBtnCancelar.setEnabled(false);
+       jBtnIncluir.setEnabled(true);
+       jBtnAlterar.setEnabled(true);
+       jBtnExcluir.setEnabled(true);
+       jBtnPesquisar.setEnabled(true);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,14 +119,24 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
 
         jChbAtivo.setText("Ativo");
 
+        jBtnIncluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/incluir.png"))); // NOI18N
         jBtnIncluir.setText("Incluir");
+        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnIncluirActionPerformed(evt);
+            }
+        });
 
+        jBtnAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/alterar.png"))); // NOI18N
         jBtnAlterar.setText("Alterar");
 
+        jBtnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Excluir.png"))); // NOI18N
         jBtnExcluir.setText("Excluir");
 
+        jBtnConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/gravar.png"))); // NOI18N
         jBtnConfirmar.setText("Confirmar");
 
+        jBtnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/cancelar.png"))); // NOI18N
         jBtnCancelar.setText("Cancelar");
         jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,6 +144,7 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
             }
         });
 
+        jBtnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png"))); // NOI18N
         jBtnPesquisar.setText("Pesquisar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,16 +153,13 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(48, 48, 48)
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTxtNome)))
-                .addGap(6, 6, 6))
+                    .addComponent(jLabel1)
+                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTxtNome)
+                    .addComponent(jLabel2))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPwfSenha)
                 .addGap(18, 18, 18)
@@ -155,13 +194,13 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
                         .addComponent(jBtnAlterar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBtnConfirmar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnCancelar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jBtnPesquisar)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,10 +209,10 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTxtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
@@ -203,7 +242,7 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
                     .addComponent(jBtnConfirmar)
                     .addComponent(jBtnCancelar)
                     .addComponent(jBtnPesquisar))
-                .addGap(0, 77, Short.MAX_VALUE))
+                .addGap(0, 85, Short.MAX_VALUE))
         );
 
         pack();
@@ -211,7 +250,13 @@ public class JDlgMpvUsuarios extends javax.swing.JDialog {
 
     private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
         // TODO add your handling code here:
+        desabilitar();
     }//GEN-LAST:event_jBtnCancelarActionPerformed
+
+    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
+        // TODO add your handling code here:
+      habilitar();
+    }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     /**
      * @param args the command line arguments
